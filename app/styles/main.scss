@@ -1,0 +1,104 @@
+// bower:scss
+// endbower
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+body {
+    background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    // border: 1px solid black;
+    margin: 1em auto;
+}
+
+.view-one-container, .view-two-container, 
+.view-three-container {
+
+    width: 32%;
+    height: 30em;
+    display: inline-block;
+    float: left;
+    padding: 1em;
+    // border: 1px solid black;
+    font-size: 20px;
+    overflow: scroll;
+    background: #1D1E1A;
+    color: darken(#fff, 10%);
+    border-radius: 4px;
+    margin: 0 .25em;
+    box-shadow: 3px 3px 0 2px darken(#969696, 20%);
+
+    & ul {
+        list-style: none;
+        padding: 0;
+    }
+}
+
+.collection-one-item {
+    padding: .4em;
+    color: #ED8A24;
+    border-right: 2px solid #ED8A24;
+    border-bottom: 2px solid #ED8A24;
+    margin-top: .5em;
+    border-radius: 4px;
+    box-shadow: 1px 1px darken(#ED8A24, 20%)
+}
+
+.collection-two-item {
+    padding: .4em;
+    color: #9ED32B;
+    border-right: 2px solid #9ED32B;
+    border-bottom: 2px solid #9ED32B;
+    margin-top: .5em;
+    border-radius: 4px;
+    box-shadow: 1px 1px darken(#9ED32B, 20%)
+}
+
+.collection-three-item {
+    padding: .4em;
+    color: #6CCDE7;
+    border-right: 2px solid #6CCDE7;
+    border-bottom: 2px solid #6CCDE7;
+    margin-top: .5em;
+    border-radius: 4px;
+    box-shadow: 1px 1px darken(#6CCDE7, 20%)
+}
+
+
+.create-new-item {
+    position: relative;
+    margin: 1em auto;
+    width: 25em;
+
+    & ul {
+        list-style: none;
+        display: none;
+        padding: 0;
+        margin-left: 9em;
+    }
+
+    & .new-item-text {
+        display: none;
+        width: 20em;
+        font-size: 20px;
+    }
+
+    & .new-item {
+        margin-left: 16em;
+    }
+
+    & .save-item {
+        display: none;
+        margin: 0 auto;
+        margin-left: 16em;
+
+    }
+}
