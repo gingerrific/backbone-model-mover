@@ -1,38 +1,132 @@
 // bower:scss
 // endbower
 
+
+//////////////////////////////////////////////////
+/// Globals //////////////////////////////////////
+//////////////////////////////////////////////////
+
 *, *:before, *:after {
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
-  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
     background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
+    margin: 0;
+    font-size: 100%;
 }
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -4em;
+
+    &:after {
+        content: " ";
+        display: block;
+        height: 4em;
+    }
+}
+
+//////////////////////////////////////////////////
+/// Header ///////////////////////////////////////
+//////////////////////////////////////////////////
+
+header {
+    width: 100%;
+    min-height: 6.25em;
+    background: #6CCDE7;
+    font-family: 'Lobster Two', cursive;
+
+    & .header-content {
+        width: 90%;
+        margin: 0 auto;
+        position: relative;
+
+        & img {
+            vertical-align: middle;
+        }
+        & ul {
+            position: absolute;
+            right: 0;
+            top: 1.9375em;
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+            
+            & li {
+                margin-right: .75em;
+                font-size: 1.5em;
+                font-weight: bold;
+                display: inline-block;
+            }
+
+            & a {
+                text-decoration: none;
+                color: darken(white, 2%);
+                text-shadow: 1px 1px 0 darken(#6ccde7, 25%);
+                
+                &:hover {
+                    color: darken(#7e77dd, 5%);
+               
+                }
+            }
+        }
+    }
+}
+
+
+//////////////////////////////////////////////////
+/// Footer ///////////////////////////////////////
+//////////////////////////////////////////////////
+
+footer {
+    height: 4em;
+    width: 100%;
+    background: #D13541;
+    // position: absolute;
+    // bottom: 0;
+    // left: 0;
+}
+
+
+//////////////////////////////////////////////////
+/// Main Container ///////////////////////////////
+//////////////////////////////////////////////////
 
 .container {
     width: 90%;
+    max-width: 1140px;
     margin: 1em auto;
+    // min-height: 100%;
+    padding-bottom: 4em;
 }
 
-.view-one-container, .view-two-container, 
-.view-three-container {
+//////////////////////////////////////////////////
+/// View Containers //////////////////////////////
+//////////////////////////////////////////////////
 
-    width: 32%;
-    height: 30em;
-    display: inline-block;
+.view-one-container, .view-two-container,
+.view-three-container {
     float: left;
+    width: 32.6666666%;
+    height: 25em;
+    margin: 0 1% 2em 0;
     padding: 1em;
-    font-size: 20px;
+    font-size: 1.25em;
+    border-radius: .25em;
     overflow: scroll;
     background: #1D1E1A;
-    color: darken(#fff, 10%);
-    border-radius: 4px;
-    margin: 0 .25em 2em;
-    box-shadow: 3px 3px 0 2px darken(#969696, 20%);
+    color: darken(white, 10%);
+    box-shadow: 0.1875em 0.1875em 0 0.125em darken(#969696, 20%);
+    transition: all .4s linear;
 
     & ul {
         list-style: none;
@@ -40,40 +134,53 @@ body {
     }
 }
 
+
+.container > div:nth-of-type(3) {
+        margin-right: 0;
+}
+
+//////////////////////////////////////////////////
+/// Collection Containers ////////////////////////
+//////////////////////////////////////////////////
+
 .collection-one-item, .collection-two-item,
 .collection-three-item {
     padding: .4em;
     margin-top: .5em;
-    border-radius: 4px;
+    border-radius: .25em;
 }
 
 .collection-one-item {
     color: #ED8A24;
     border-right: 2px solid #ED8A24;
     border-bottom: 2px solid #ED8A24;
-    box-shadow: 1px 1px darken(#ED8A24, 20%)
+    box-shadow: 1px 1px darken(#ed8a24, 20%);
 }
 
 .collection-two-item {
     color: #9ED32B;
     border-right: 2px solid #9ED32B;
     border-bottom: 2px solid #9ED32B;
-    box-shadow: 1px 1px darken(#9ED32B, 20%)
+    box-shadow: 1px 1px darken(#9ed32b, 20%);
 }
 
 .collection-three-item {
-    color: #6CCDE7;
-    border-right: 2px solid #6CCDE7;
-    border-bottom: 2px solid #6CCDE7;
-    box-shadow: 1px 1px darken(#6CCDE7, 20%)
+    color: #DFCB5A;
+    border-right: 2px solid #DFCB5A;
+    border-bottom: 2px solid #DFCB5A;
+    box-shadow: 1px 1px darken(#dfcb5a, 20%);
 }
 
+//////////////////////////////////////////////////
+/// New Item Button and Options //////////////////
+//////////////////////////////////////////////////
 
 .create-new-item {
     clear: both;
     margin: 1em auto;
     width: 25em;
-
+    padding-bottom: 4em;
+    
     & ul {
         list-style: none;
         display: none;
@@ -95,6 +202,83 @@ body {
         display: none;
         margin: 0 auto;
         margin-left: 16em;
-
     }
+
+    & .close-element {
+        display: none;
+        margin: 0 auto;
+        margin-left: 15.5em;
+    }
+}
+
+//////////////////////////////////////////////////
+/// Media Query addClass /////////////////////////
+//////////////////////////////////////////////////
+
+.condensed-view-container {
+    height: 3.1em;
+    min-height: 0;
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+
+//////////////////////////////////////////////////
+/// Media Queries ////////////////////////////////
+//////////////////////////////////////////////////
+
+@media screen and (max-width: 1050px) {
+    
+    .container > div {
+       width: 47.5%;
+       margin-right: 5%;
+    }
+
+    .container > div:nth-of-type(2n) {
+        margin-right: 0;
+    }
+
+}
+
+@media screen and (max-width: 738px) {
+    
+    header .header-content {
+        width: 80%;
+        text-align: center;
+
+        & ul {
+            margin-top: 0;
+            position: static;
+
+            & li:nth-of-type(4) {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .container > div {
+       width: 97%;
+       margin-right: 1.5%;
+       margin-left: 1.5%;
+    }
+
+    // .create-new-item {
+    //     display: none;
+    // }
+}
+
+
+@media screen and (max-width: 450px) {
+    
+    header .header-content {
+        width: 90%;
+    }
+
+    .container {
+       width: 100%;
+        & > div {
+            width: 96%;
+            margin: 0 2.5% 1em 1.5%;
+        }
+    }
+
 }

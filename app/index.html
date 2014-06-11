@@ -6,6 +6,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <link rel="shortcut icon" href="/favicon.ico">
+        <link href='http://fonts.googleapis.com/css?family=Lobster+Two:700italic' rel='stylesheet' type='text/css'>
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css styles/vendor.css -->
         <!-- bower:css -->
@@ -20,45 +21,62 @@
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+    <div class="wrapper">
+        <header>
+            <div class="header-content">
+            <img src="../images/TIY.svg">
+                <ul>
+                    <li><a href="#list1">List 1</a></li>
+                    <li><a href="#list2">List 2</a></li>
+                    <li><a href="#list3">List 3</a></li>
+                    <li><a href="#new-button">New</a></li>
+                </ul>
+            </div>
+        </header>
 
         <div class="container">
-            <div class="view-one-container">
+            <div class="view-one-container" id="list1">
                 List 1
                 <ul class="list collection-one">
                 </ul>
             </div>
-            <div class="view-two-container">
+            <div class="view-two-container" id="list2">
                 List 2
                 <ul class="list collection-two">
                 </ul>
             </div>
-            <div class="view-three-container">
+            <div class="view-three-container" id="list3">
                 List 3
                 <ul class="list collection-three">
                 </ul>
             </div>
         </div>
 
-        <div class="create-new-item">
-            <button class="new-item">
-                    New
-            </button>
-            <input type="text" class="new-item-text">
-            <button class="save-item">Save</button>
-            <ul>
-                <li>
-                    <input type="checkbox" value="saveOne"> Add to List 1
-                </li>
-                <li>
-                    <input type="checkbox" value="saveTwo">
-                    Add to List 2
-                </li>
-                <li>
-                    <input type="checkbox" value="saveThree">
-                    And to List 3
-                </li>
-            </ul>
-        </div>
+            <div class="create-new-item" id="new-button">
+                <button class="new-item">
+                        New
+                </button>
+                <input type="text" class="new-item-text">
+                <button class="save-item">Save</button>
+                <ul>
+                    <li>
+                        <input type="checkbox" value="saveOne"> Add to List 1
+                    </li>
+                    <li>
+                        <input type="checkbox" value="saveTwo">
+                        Add to List 2
+                    </li>
+                    <li>
+                        <input type="checkbox" value="saveThree">
+                        And to List 3
+                    </li>
+                </ul>
+                <button class="close-element">Close</button>
+            </div>
+    </div>
+        <footer></footer>
+
+
 
         <script type="text/template" class="list-one-template">
             

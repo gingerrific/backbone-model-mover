@@ -2,9 +2,11 @@
 // clicking the 'new' button will display fields to create a new list item
 $('.new-item').click(function () {
 	$('.save-item').show();
+	$('.close-element').show();
 	$('.new-item-text').show();
 	$('.create-new-item ul').show();
 	$('.new-item').hide();
+	$(window).scrollTop ($('body').height())
 });
 
 
@@ -42,6 +44,7 @@ $('.save-item').click( function() {
 	$('.save-item').hide();
 	$('.new-item-text').hide();
 	$('.create-new-item ul').hide();
+	$('.close-element').hide();
 	$('.new-item').show();
 
 	}
@@ -50,5 +53,76 @@ $('.save-item').click( function() {
 	}
 });
 
+$('.close-element').click( function () {
+	$('input:checkbox:checked').attr('checked', false)
+	$('.new-item-text').val('');
+	$('.save-item').hide();
+	$('.new-item-text').hide();
+	$('.create-new-item ul').hide();
+	$('.close-element').hide();
+	$('.new-item').show();
+});
+
+// on click of the div, check if the window matches css media query conditions
+// if so, allow user to click to toggle the condesed view.
+$('.view-one-container').click( function () {
+	var mediaQuery = window.matchMedia("(max-width: 738px)");
+	if (mediaQuery.matches) {
+		$(this).toggleClass("condensed-view-container");
+	}
+});
+
+$('.view-two-container').click( function () {
+	var mediaQuery = window.matchMedia("(max-width: 738px)");
+	if (mediaQuery.matches) {
+		$(this).toggleClass("condensed-view-container");
+	}
+});
+
+$('.view-three-container').click( function () {
+	var mediaQuery = window.matchMedia("(max-width: 738px)");
+	if (mediaQuery.matches) {
+		$(this).toggleClass("condensed-view-container");
+	}
+});
+
+$('.view-one-container').on('touchstart', function () {
+	event.preventDefault();
+	var mediaQuery = window.matchMedia("(max-width: 738px)");
+	if (mediaQuery.matches) {
+		$(this).toggleClass("condensed-view-container");
+	}
+})
 
 
+
+
+var media = matchMedia("(max-width: 738px)");
+media.addListener(function (mediaQueryList) {
+	if (mediaQueryList.matches) {
+		$('.view-one-container').addClass('condensed-view-container');
+		$('.view-two-container').addClass('condensed-view-container');
+		$('.view-three-container').addClass('condensed-view-container');
+		} 
+	else {
+		$('.view-one-container').removeClass('condensed-view-container');
+		$('.view-two-container').removeClass('condensed-view-container');
+		$('.view-three-container').removeClass('condensed-view-container');
+	}
+});
+
+function checkPageWidth () {
+	if ( $(document).width() <= 738) {
+		$('.view-one-container').addClass('condensed-view-container');
+		$('.view-two-container').addClass('condensed-view-container');
+		$('.view-three-container').addClass('condensed-view-container');
+	}
+
+	else {
+		$('.view-one-container').removeClass('condensed-view-container');
+		$('.view-two-container').removeClass('condensed-view-container');
+		$('.view-three-container').removeClass('condensed-view-container');
+	}
+}
+
+checkPageWidth();
