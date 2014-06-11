@@ -1,6 +1,7 @@
 "use strict";
 
-
+// The first column view.
+// Each view shares a common template and model, but is called from a different collection/location in the DOM
 Mover.Views.ViewOne = Backbone.View.extend({
 	template: _.template($('.list-one-template').html()),
 	className: 'collection-one-item',
@@ -17,7 +18,11 @@ Mover.Views.ViewOne = Backbone.View.extend({
 		this.listenTo(this.model, 'destroy', this.remove);
 		$('.collection-one').append(this.el);
 		this.render();
+		// if the model doesn't have an ID, it's been added via the new item input,
+		// first add a time element for sorting and save it to the server. this save will trigger
+		// the same rendering.
 		if (this.model.isNew()){
+			this.model.set({'time': Date.now()});
 			this.model.save();
 		}
 	},
@@ -32,6 +37,7 @@ Mover.Views.ViewOne = Backbone.View.extend({
 	},
 
 	copyTwo: function () {
+		// clone the current model, remove it's _id and add it to the appropriate collection
 		var model = this.model.clone();
 		model.unset('_id');
 		Mover.collections.collectionTwo.add(model);
@@ -44,6 +50,7 @@ Mover.Views.ViewOne = Backbone.View.extend({
 	},
 
 	moveToTwo: function () {
+		// clone the current model, remove it's _id and destroy it from this collection
 		var model = this.model.clone();
 		model.unset('_id');
 		Mover.collections.collectionTwo.add(model);
@@ -76,6 +83,7 @@ Mover.Views.ViewTwo = Backbone.View.extend({
 		$('.collection-two').append(this.el);
 		this.render();
 		if (this.model.isNew()) {
+			this.model.set({'time': Date.now()});
 			this.model.save();
 		}
 	},
@@ -134,6 +142,7 @@ Mover.Views.ViewThree = Backbone.View.extend({
 		$('.collection-three').append(this.el);
 		this.render();
 		if (this.model.isNew()){
+			this.model.set({'time': Date.now()});
 			this.model.save();
 		}
 	},
@@ -178,7 +187,7 @@ Mover.Views.ViewThree = Backbone.View.extend({
 
 
 Mover.Views.AppView = Backbone.View.extend({
-
+	// create, fetch and listenTo all of the collections. 
 	initialize: function () {
 		Mover.collections.collectionOne = new Mover.Collections.FirstCollection();
 		Mover.collections.collectionTwo = new Mover.Collections.SecondCollection();

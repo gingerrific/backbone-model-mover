@@ -1,5 +1,5 @@
 "use strict";
-
+// separate collections for each 'column', however they all share the same model constructor
 Mover.Collections.FirstCollection = Backbone.Collection.extend({
 	model: Mover.Models.List,
 	url: 'http://tiny-pizza-server.herokuapp.com/collections/jdMovingCollectionOne'

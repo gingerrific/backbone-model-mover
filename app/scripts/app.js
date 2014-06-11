@@ -1,5 +1,6 @@
 "use strict";
 
+// global variable to house/access all Constructors
 var Mover = {
 	Models: {
 		List: {},
