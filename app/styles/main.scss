@@ -180,34 +180,31 @@ footer {
     margin: 1em auto;
     width: 25em;
     padding-bottom: 4em;
-    
+    text-align: center;
+
     & ul {
         list-style: none;
         display: none;
         padding: 0;
-        margin-left: 9em;
     }
 
     & .new-item-text {
         display: none;
         width: 20em;
-        font-size: 20px;
+        font-size: 1.25em;
     }
 
     & .new-item {
-        margin-left: 16em;
     }
 
     & .save-item {
         display: none;
-        margin: 0 auto;
-        margin-left: 16em;
+
     }
 
     & .close-element {
         display: none;
-        margin: 0 auto;
-        margin-left: 15.5em;
+
     }
 }
 

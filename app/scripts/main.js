@@ -86,16 +86,6 @@ $('.view-three-container').click( function () {
 	}
 });
 
-$('.view-one-container').on('touchstart', function () {
-	event.preventDefault();
-	var mediaQuery = window.matchMedia("(max-width: 738px)");
-	if (mediaQuery.matches) {
-		$(this).toggleClass("condensed-view-container");
-	}
-})
-
-
-
 
 var media = matchMedia("(max-width: 738px)");
 media.addListener(function (mediaQueryList) {
